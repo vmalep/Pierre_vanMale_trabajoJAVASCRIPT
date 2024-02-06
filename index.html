@@ -10,6 +10,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
     <!-- Import views -->
     <script src="views/galeria.js" type="text/javascript" defer></script>
 
@@ -46,54 +47,63 @@
     </nav>
 
     <div class="tab-content px-3">
+
         <div id="home" class="tab-pane fade fade">
             <h3>Inicío</h3>
             <p>Some content</p>
         </div>
+
         <div id="galeria" class="tab-pane fade">
             <galeria-component></galeria-component>
         </div>
+
         <div id="presupuesto" class="tab-pane show active">
             <h3>Formulario de solicitud</h3>
             <form>
                 <div class="row">
                     <div class="col">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card m-2 p-2">
                             <h5 class="card-title">Datos de contacto</h5>
-                            <div class="input-group">
-                                <span class="input-group-text">Nombre y apellido</span>
-                                <input type="text" aria-label="First name" class="form-control">
-                                <input type="text" aria-label="Last name" class="form-control">
-                            </div>
-                            <div class="mb-3">
+                            <div>
                                 <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
-                                    <input type="text" id="phone" class="form-control"
-                                        data-mdb-input-mask="+48 999-999-999" />
-                                    <label class="form-label" for="phone">Phone number with country code</label>
+                                    <label class="form-label" for="phone">Nombre</label>
+                                    <input type="text" aria-label="First name" class="form-control">
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-2">
+                                <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
+                                    <label class="form-label" for="phone">Apellido</label>
+                                    <input type="text" aria-label="Last name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
+                                    <label class="form-label" for="phone">Phone number with country code</label>
+                                    <input type="text" id="phone" class="form-control"
+                                        data-mdb-input-mask="+48 999-999-999" />
+                                </div>
+                            </div>
+                            <div class="mb-2">
                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card m-2 p-2">
 
                             <h5 class="card-title">Presupuesto</h5>
 
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select mb-2" aria-label="Default select example">
                                 <option selected>Producto</option>
                                 <option value="1">TikiWiki</option>
                                 <option value="2">WordPress</option>
                                 <option value="3">Custom</option>
                             </select>
 
-                            <div class="container">
+                            <div class="container mb-2">
                                 <form>
                                     <div class="form-group">
                                         <label for="formControlRange">Plazo (en semanas)</label>
@@ -108,7 +118,7 @@
                                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                                 crossorigin="anonymous"></script>
 
-                            <div class="card" style="width: 18rem;">
+                            <div class="card p-2" style="width: 18rem;">
                                 <h6>Extras</h6>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" role="switch"
@@ -134,17 +144,32 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card m-2 p-2" style="width: 18rem;">
                             <h5 class="card-title">Accepto Condictiones et envio de presupuesto</h5>
                             <label class="form-check-label" for="defaultCheck1">
                                 He leido la policia de privacidad
                             </label>
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
                         </div>
                     </div>
             </form>
+
+            <script>
+                function calcPresupuesto() {
+                    var arr = document.getElementsByName('qty');
+                    var tot = 0;
+
+                    for (var i = 0; i < arr.length; i++) {
+                        if (parseInt(arr[i].value))
+                            tot += parseInt(arr[i].value);
+                    }
+
+                    document.getElementById('total').value = tot;
+                }
+            </script>
         </div>
+
         <div id="contacto" class="tab-pane fade">
             <h3>Contacto</h3>
             <p>Some contacto</p>
