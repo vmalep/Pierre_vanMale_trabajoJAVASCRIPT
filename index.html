@@ -10,13 +10,14 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/calculatePresupuesto.js"></script>
 
     <!-- Import views -->
     <script src="views/galeria.js" type="text/javascript" defer></script>
 
 </head>
 
-<body>
+<body onload='hideTotal()'>
 
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -59,7 +60,7 @@
 
         <div id="presupuesto" class="tab-pane show active">
             <h3>Formulario de solicitud</h3>
-            <form>
+            <form action="" id="presupuestoForm" onsubmit="return false;">
                 <div class="row">
                     <div class="col">
                         <div class="card m-2 p-2">
@@ -67,25 +68,26 @@
                             <div>
                                 <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
                                     <label class="form-label" for="phone">Nombre</label>
-                                    <input type="text" aria-label="First name" class="form-control">
+                                    <input type="text" aria-label="First name" class="form-control" name="firstName">
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
                                     <label class="form-label" for="phone">Apellido</label>
-                                    <input type="text" aria-label="Last name" class="form-control">
+                                    <input type="text" aria-label="Last name" class="form-control" name="lastName">
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
                                     <label class="form-label" for="phone">Phone number with country code</label>
                                     <input type="text" id="phone" class="form-control"
-                                        data-mdb-input-mask="+48 999-999-999" />
+                                        data-mdb-input-mask="+48 999-999-999" / name="phoneNumber">
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp">
+                                <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp"
+                                    name="correoEmail">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                 </div>
                             </div>
@@ -95,50 +97,53 @@
                         <div class="card m-2 p-2">
 
                             <h5 class="card-title">Presupuesto</h5>
-
-                            <select class="form-select mb-2" aria-label="Default select example">
-                                <option selected>Producto</option>
-                                <option value="1">TikiWiki</option>
-                                <option value="2">WordPress</option>
-                                <option value="3">Custom</option>
+                            <label>Tipo de producto</label>
+                            <select class="form-select mb-2" aria-label="Default select example"
+                                onchange="calculatePresupuesto()" id="productType" name="productType">
+                                <option value="None">Elige el producto</option>
+                                <option value="tikiWiki">TikiWiki (€500)</option>
+                                <option value="wordPress">WordPress (€750)</option>
+                                <option value="customsite">Custom (€1'000)</option>
                             </select>
 
                             <div class="container mb-2">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="formControlRange">Plazo (en semanas)</label>
-                                        <input type="range" class="form-control-range" min="1" max="8" step="1"
-                                            id="formControlRange" onInput="$('#rangeval').html($(this).val())">
-                                        <span id="rangeval">2<!-- Default value --></span>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <label for="formControlRange">Plazo (en semanas)</label>
+                                    <input type="range" class="form-control-range" min="1" max="8" step="1" id="nbWeeks"
+                                        name="nbWeeks"
+                                        onInput="$('#rangeval').html($(this).val()); calculatePresupuesto()">
+                                    <span id="rangeval">8</span>
+                                </div>
                             </div>
 
                             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                                crossorigin="anonymous"></script>
+                                crossorigin="anonymous">
+                                </script>
 
                             <div class="card p-2" style="width: 18rem;">
                                 <h6>Extras</h6>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" role="switch"
-                                        id="switchDedicatedServer">
+                                        id="switchDedicatedServer" name="switchDedicatedServer"
+                                        onchange="calculatePresupuesto()">
                                     <label class="form-check-label" for="flexSwitchCheckDefault">Dedicated
-                                        server</label>
+                                        server (100€)</label>
                                 </div>
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch"
-                                        id="switchDedicatedServer">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Domain name</label>
+                                    <input class="form-check-input" type="checkbox" role="switch" id="switchDomainName"
+                                        name="switchDomainName" onchange="calculatePresupuesto()">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Domain name (50€)</label>
                                 </div>
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch"
-                                        id="switchDedicatedServer">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="switchAutoBkp"
+                                        name="switchAutoBkp" onchange="calculatePresupuesto()">
                                     <label class="form-check-label" for="flexSwitchCheckDefault">Automatic
-                                        backup</label>
+                                        backup (75€)</label>
                                 </div>
                             </div>
                             <p>Presupuesto actualizado</p>
+                            <div id="presupuestoTotal"></div>
                         </div>
                     </div>
                 </div>
@@ -154,20 +159,6 @@
                         </div>
                     </div>
             </form>
-
-            <script>
-                function calcPresupuesto() {
-                    var arr = document.getElementsByName('qty');
-                    var tot = 0;
-
-                    for (var i = 0; i < arr.length; i++) {
-                        if (parseInt(arr[i].value))
-                            tot += parseInt(arr[i].value);
-                    }
-
-                    document.getElementById('total').value = tot;
-                }
-            </script>
         </div>
 
         <div id="contacto" class="tab-pane fade">
