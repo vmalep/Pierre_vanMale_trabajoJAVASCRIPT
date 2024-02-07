@@ -80,3 +80,21 @@ function hideTotal()
     var divobj = document.getElementById('presupuestoTotal');
     divobj.style.display='none';
 }
+
+function validate(form) {
+
+    // validation code here ...
+
+
+    if(!valid) {
+        alert('Please correct the errors in the form!');
+        return false;
+    }
+    else {
+        return confirm('Do you really want to submit the form?');
+    }
+}
+
+// TODO: add reset button: document.getElementById("myform").reset();
+
+// TODO: finalize the submit process with validation and alert msg
