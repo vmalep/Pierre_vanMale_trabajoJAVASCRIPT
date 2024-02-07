@@ -106,9 +106,57 @@
                                 <option value="customsite">Custom (€1'000)</option>
                             </select>
 
-                            <div class="container mb-2">
+                            <div class="d-flex border rounded flex-column p-2 mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <p>Plazo</p>
+                                    <p>(Precio multi 8/num de semanas)</p>
+                                </div>
+                                <form class="text-center">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-range-1-04">Numero de semanas</label><br>
+                                        <input class="form-range" type="range" min="1" max="8" step="1" value="8" id="nbWeeks"
+                                        name="nbWeeks" oninput="calculatePresupuesto()">
+                                        <ul class="list-inline d-flex justify-content-between">
+                                            <li>
+                                                <p class="m-0">|</p>
+                                                <p class="m-0">1</p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">|</p>
+                                                <p class="m-0">2</p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">|</p>
+                                                <p class="m-0">3</p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">|</p>
+                                                <p class="m-0">4</p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">|</p>
+                                                <p class="m-0">5</p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">|</p>
+                                                <p class="m-0">6</p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">|</p>
+                                                <p class="m-0">7</p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">|</p>
+                                                <p class="m-0">8</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- <div class="container mb-2 border rounded p-2">
                                 <div class="form-group">
-                                    <label for="formControlRange">Plazo (en semanas)</label>
+                                    <label for="formControlRange">Plazo (en semanas)</label><br>
                                     <input type="range" class="form-control-range" min="1" max="8" step="1" id="nbWeeks"
                                         name="nbWeeks"
                                         onInput="$('#rangeval').html($(this).val()); calculatePresupuesto()">
@@ -119,7 +167,7 @@
                             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                                 crossorigin="anonymous">
-                                </script>
+                                </script> -->
 
                             <div class="card p-2" style="width: 18rem;">
                                 <h6>Extras</h6>
@@ -133,7 +181,8 @@
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" role="switch" id="switchDomainName"
                                         name="switchDomainName" onchange="calculatePresupuesto()">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Domain name (50€)</label>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Domain name
+                                        (50€)</label>
                                 </div>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" role="switch" id="switchAutoBkp"
