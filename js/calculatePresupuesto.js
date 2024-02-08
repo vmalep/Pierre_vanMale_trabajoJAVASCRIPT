@@ -81,20 +81,11 @@ function hideTotal()
     divobj.style.display='none';
 }
 
-function validate(form) {
-
-    // validation code here ...
-
-
-    if(!valid) {
-        alert('Please correct the errors in the form!');
-        return false;
-    }
-    else {
-        return confirm('Do you really want to submit the form?');
-    }
+function resetForm(form) {
+    document.getElementById(form).reset();
 }
 
-// TODO: add reset button: document.getElementById("myform").reset();
-
-// TODO: finalize the submit process with validation and alert msg
+function submitForm(form) {
+    alert("Gracias por su petición. Los contactaremos pronto.");
+    resetForm(form);
+  }
