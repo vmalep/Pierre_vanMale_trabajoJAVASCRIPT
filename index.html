@@ -83,7 +83,7 @@
                 return publishedAtDate.toLocaleString('es-ES', dateFormatOptions);
             }
 
-            fetch('rss/news.json')
+            fetch('data/news.json')
                 .then(function (response) {
                     return response.json();
                 })
