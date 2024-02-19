@@ -18,7 +18,7 @@ class Home extends HTMLElement {
 
         <div class="col-md border rounded m-2">
             Noticias
-            <div id="myData"></div>
+            <div id="myRSS"></div>
         </div>
         <div class="col-md border rounded m-2">
             Acerca de mi

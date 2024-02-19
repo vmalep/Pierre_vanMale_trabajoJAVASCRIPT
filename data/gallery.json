@@ -1,0 +1,28 @@
+{
+    "cards": [
+        {
+            "title": "TikiWiki",
+            "description": "The Open Source no-code/low-code web application framework for when a standard CMS isn't enough.",
+            "url": "https://tiki.org/HomePage",
+            "image": "../images/ss2_tikiwiki.jpg"
+        },
+        {
+            "title": "WordPress",
+            "description": "Build and grow your website with the best way to WordPress. Lightning-fast hosting, intuitive, flexible editing, and everything you need to grow your site and audience, baked right in.",
+            "url": "https://wordpress.com",
+            "image": "../images/wordpress-screen-themes.png"
+        },
+        {
+            "title": "Drupal",
+            "description": "Drupal 10.2 is here and improves content modeling, block management, menu and taxonomy organization, permission administration, and more! Still the best digital experience platform(DXP) on the web, proudly open source.",
+            "url": "https://www.drupal.org",
+            "image": "../images/drupal-03-content-creation.width-800.webp"
+        },
+        {
+            "title": "Django",
+            "description": "Django makes it easier to build better web apps more quickly and with less code.",
+            "url": "https://www.djangoproject.com/",
+            "image": "../images/djangoDashBoard.jpg"
+        }
+    ]
+}

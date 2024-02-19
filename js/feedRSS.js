@@ -20,16 +20,20 @@ fetch('../data/news.json')
         return response.json();
     })
     .then(function (data) {
-        appendData(data);
+        appendRSS(data);
     })
     .catch(function (err) {
         console.log('error: ' + err);
     });
 
-function appendData(data) {
-    var mainContainer = document.getElementById("myData");
+function appendRSS(data) {
+    var mainContainer = document.getElementById("myRSS");
 
     for (var i = 0; i < (data.articles.length); i++) {
+
+        console.log(data.articles);
+
+        // Limit to 4 articles
         if (i === 4) { break; }
 
         var div = document.createElement("div");
