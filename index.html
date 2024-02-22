@@ -11,8 +11,15 @@
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="leaflet-routing-machine/leaflet-routing-machine.css" />
+    <style>
+        .map {
+            position: absolute;
+            width: 100%;
+            height: 400px;
+        }
+    </style>
 
 </head>
 
@@ -68,37 +75,53 @@
 
         <div id="contacto" class="tab-pane fade">
             <h3>OpenLayers Simplest Example</h3>
-            <div id="map"></div>
-
-            <!-- Make sure you put this AFTER Leaflet's CSS -->
-            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-                integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+            <div id="map" class="map"></div>
+            <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+            <script src="leaflet-routing-machine/leaflet-routing-machine.js"></script>
 
             <script>
+
                 var map = L.map('map').setView([41.38705, 2.17003], 16);
                 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     maxZoom: 19,
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(map);
 
-                var marker = L.marker([41.3891, 2.1607]).addTo(map);
+                var markerWME = L.marker([41.3891, 2.1607],
+                    {
+                        title: "WebMadeEasy",
+                        riseOnHover: true
+                    }
+                ).addTo(map);
 
-                // var circle = L.circle([51.508, -0.11], {
-                //     color: 'red',
-                //     fillColor: '#f03',
-                //     fillOpacity: 0.5,
-                //     radius: 500
-                // }).addTo(map);
+                var markerClient = L.marker([41.3915, 2.1845],
+                    {
+                        title: "Client",
+                        riseOnHover: true
+                    }
+                ).addTo(map);
 
-                // var polygon = L.polygon([
-                //     [51.509, -0.08],
-                //     [51.503, -0.06],
-                //     [51.51, -0.047]
-                // ]).addTo(map);
 
-                // map.invalidateSize();
+                L.Routing.control({
+                    waypoints: [
+                        L.latLng(41.3915, 2.1845),
+                        L.latLng(41.3891, 2.1607)
+                    ],
+                    routeWhileDragging: true
+                }).addTo(map);
+
+                // Trying to fix the problem of the map not being centered and zoomed, to no avail...
+                // see also: https://stackoverflow.com/questions/43065090/leaflet-map-does-not-centre-correct
+
+                // setTimeout(function () {
+                //     map.invalidateSize();
+                //     map.fitBounds(myBounds2, {
+                //         maxZoom: 10
+                //     });
+                // }, 1000); // Adjust the value (in ms)
 
             </script>
+
         </div>
 
         <footer class="footer">
