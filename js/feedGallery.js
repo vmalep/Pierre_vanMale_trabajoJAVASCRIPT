@@ -7,7 +7,6 @@ fetch('../data/gallery.json')
         return response.json();
     })
     .then(function (data) {
-        console.log('fetch success');
         appendCards(data);
     })
     .catch(function (err) {
@@ -20,7 +19,7 @@ function appendCards(data) {
     var mainContainer = document.getElementById("myGalleryCards");
 
     for (var i = 0; i < (data.cards.length); i++) {
-    console.log(data.cards[i]);
+
         var div_col = document.createElement("div");
         div_col.classList.add('col-md', 'm-2'); // -lg-4', 'd-none', 'd-lg-block
 
