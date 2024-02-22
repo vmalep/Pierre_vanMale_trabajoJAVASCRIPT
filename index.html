@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="leaflet-routing-machine/leaflet-routing-machine.css" />
     <style>
         .map {
-            position: absolute;
+            /* position: absolute; */
             width: 100%;
             height: 400px;
         }
@@ -74,14 +74,27 @@
         </div>
 
         <div id="contacto" class="tab-pane fade">
-            <h3>OpenLayers Simplest Example</h3>
-            <div id="map" class="map"></div>
+            <div class="container">
+                <h3>Contacto</h3>
+
+                    <div class="col border rounded m-2">
+                        <div id="map" class="map"></div>
+                    </div>
+                    <div class="col border rounded m-2">
+                        <p>Direccion de la empresa</p>
+                    </div>
+            </div>
             <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
             <script src="leaflet-routing-machine/leaflet-routing-machine.js"></script>
 
             <script>
 
-                var map = L.map('map').setView([41.38705, 2.17003], 16);
+                // Note: there is a still a problem of refresh. Leaflet stops loading the tiles until the window is moved.
+                // I have tried various suggestions to no avail. See also:
+                // https://stackoverflow.com/questions/43065090/leaflet-map-does-not-centre-correct
+                // https://stackoverflow.com/questions/36246815/data-toggle-tab-does-not-download-leaflet-map
+
+                var map = L.map('map').setView([41.3877, 2.1878], 14);
                 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     maxZoom: 19,
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -107,18 +120,10 @@
                         L.latLng(41.3915, 2.1845),
                         L.latLng(41.3891, 2.1607)
                     ],
+                    fitSelectedRoutes: false,
                     routeWhileDragging: true
                 }).addTo(map);
 
-                // Trying to fix the problem of the map not being centered and zoomed, to no avail...
-                // see also: https://stackoverflow.com/questions/43065090/leaflet-map-does-not-centre-correct
-
-                // setTimeout(function () {
-                //     map.invalidateSize();
-                //     map.fitBounds(myBounds2, {
-                //         maxZoom: 10
-                //     });
-                // }, 1000); // Adjust the value (in ms)
 
             </script>
 
