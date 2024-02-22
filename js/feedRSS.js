@@ -31,8 +31,6 @@ function appendRSS(data) {
 
     for (var i = 0; i < (data.articles.length); i++) {
 
-        console.log(data.articles);
-
         // Limit to 4 articles
         if (i === 4) { break; }
 
