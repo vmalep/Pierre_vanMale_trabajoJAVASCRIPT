@@ -7,6 +7,7 @@ fetch('../data/gallery.json')
         return response.json();
     })
     .then(function (data) {
+        console.log('fetch success');
         appendCards(data);
     })
     .catch(function (err) {
