@@ -25,6 +25,12 @@
 	height: 30px;
 }
 
+/* To prevent the footer to overlap the content */
 #content {
   margin-bottom: 55px;
+}
+
+.map {
+  width: 100%;
+  height: 400px;
 }
