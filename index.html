@@ -23,9 +23,17 @@
 
 <body class="bg-light" onload='hideTotal()'>
 
+    <!-- Con el fin de evitar repetir codigo (menu y footer) en varios ficheros html, he encontrado esta solución
+    que consiste en un fichero html y codigo js para importar componentes html desde ficheros js (ubicados en "views/*.js"),
+    como lo haria un single page application.
+    Sin embargo, no me funciono para gargar la mapa desde OSM (con leaflet), por lo cal este codigo queda en el index.html.
+    Otra dificultad con esta mapa es que por tema de refresh (como lo entendi), los tiles de la mapa no cargen bien al principio,
+    pero solamente una vez que se ha cambiado el tamaño de la ventana. Imagino que eso no pasaria en una applicación React. -->
+
     <div class="container-fluid bg-secondary bg-gradient">
         <nav class="navbar navbar-expand-lg ">
             <a class="navbar-brand" href="#">WebMadeEasy</a>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -107,6 +115,7 @@
     </div>
     </div>
 
+    <!-- Necesario para que funcione el menu -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
