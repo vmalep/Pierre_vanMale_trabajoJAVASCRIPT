@@ -10,7 +10,9 @@
   padding-left: 10px;
 	padding-right: 30px;
 	padding-bottom: 10px;
-	padding-top: 10px
+	padding-top: 10px;
+  min-height: 40px;
+  max-height: 50px;
 }
 
 .div-flex-socialmedia {
@@ -21,4 +23,8 @@
 	margin: 5px;
 	width: 30px;
 	height: 30px;
+}
+
+#content {
+  margin-bottom: 55px;
 }

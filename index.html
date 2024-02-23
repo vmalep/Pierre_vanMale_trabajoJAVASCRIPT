@@ -13,6 +13,9 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
     <link rel="stylesheet" href="leaflet-routing-machine/leaflet-routing-machine.css" />
+
+    <!-- To remove the favicon error. Todo: add a real favicon -->
+    <link rel="shortcut icon" href="#">
     <style>
         .map {
             /* position: absolute; */
@@ -23,9 +26,9 @@
 
 </head>
 
-<body class="d-flex flex-column vh-100" onload='hideTotal()'>
+<body onload='hideTotal()'>
 
-    <div class="container-fluid overflow-auto">
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <a class="navbar-brand" href="#">WebMadeEasy</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -53,7 +56,7 @@
     </div>
     </nav>
 
-    <div class="tab-content px-3">
+    <div id="content" class="tab-content px-3">
 
         <div id="home" class="tab-pane show active">
             <home-component></home-component>
@@ -95,7 +98,7 @@
         <script src="../js/loadMap.js" type="text/javascript"></script>
 
 
-        <footer class="footer bg-black text-white mt-auto">
+        <footer class="footer bg-black text-white">
             <div class="div-flex-socialmedia">
                 <a href="https://www.instagram.com/" target="_blank"><img class="icon-socialmedia"
                         src="images/icon-instagram-inverted.png" alt="icon" title="Instagram icon"></a>
@@ -106,9 +109,7 @@
                 <a href="https://www.youtube.com/" target="_blank"><img class="icon-socialmedia"
                         src="images/icon-youtube-inverted.png" alt="icon" title="YouTube icon"></a>
             </div>
-            <div>
-                <a href="#contacto">Direccion de la empresa</a>
-            </div>
+
             <div>aviso legal</div>
         </footer>
     </div>
