@@ -11,7 +11,7 @@ class Presupuesto extends HTMLElement {
     
             <div class="row">
                 <div class="col">
-                    <div class="card m-2 p-2">
+                    <div class="card m-2 p-2 bg-secondary">
                         <h5 class="card-title">Datos de contacto</h5>
                         <div>
                             <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
@@ -43,7 +43,7 @@ class Presupuesto extends HTMLElement {
                 </div>
     
                 <div class="col">
-                    <div class="card m-2 p-2">
+                    <div class="card m-2 p-2 bg-secondary">
                         <h5 class="card-title">Presupuesto</h5>
                         <label>Tipo de producto</label>
                         <select class="form-select mb-2" onchange="calculatePresupuesto()" id="productType"
@@ -146,7 +146,7 @@ class Presupuesto extends HTMLElement {
             </div>
             <div class="row">
                 <div class="col">
-                    <div class="card m-2 p-2" style="width: 18rem;">
+                    <div class="card m-2 p-2 bg-secondary" style="width: 18rem;">
                         <h5 class="card-title">Accepto Condictiones et envio de presupuesto</h5>
                         <div class="border rounded">
                             <label class="form-check-label" for="defaultCheck1">

@@ -35,7 +35,7 @@ function appendRSS(data) {
         if (i === 4) { break; }
 
         var div = document.createElement("div");
-        div.classList.add('card', 'm-1');
+        div.classList.add('card', 'm-1', 'bg-light');
 
         var a = document.createElement("a");
         a.classList.add('m-1');
