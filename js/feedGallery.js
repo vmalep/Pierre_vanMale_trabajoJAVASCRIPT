@@ -21,13 +21,13 @@ function appendCards(data) {
     for (var i = 0; i < (data.cards.length); i++) {
 
         var div_col = document.createElement("div");
-        div_col.classList.add('col-md', 'm-2'); // -lg-4', 'd-none', 'd-lg-block
+        div_col.classList.add('col-md', 'border', 'rounded', 'm-2'); // -lg-4', 'd-none', 'd-lg-block
 
         var div_card = document.createElement("div");
-        div_card.classList.add('card');
+        div_card.classList.add('card', 'border-0');
 
         var img_card = document.createElement("img");
-        img_card.classList.add('card-img-top');
+        img_card.classList.add('card-img-top', 'm-2');
         img_card.src = data.cards[i].image;
         img_card.alt = data.cards[i].title;
 

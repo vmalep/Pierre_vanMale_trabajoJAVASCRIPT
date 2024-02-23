@@ -5,7 +5,7 @@ class Presupuesto extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <h3>Formulario de solicitud</h3>
+    <h3 class="text-center">Formulario de solicitud</h3>
     <form method="" id="presupuestoForm" onsubmit="submitForm('presupuestoForm')">
         <div class="form-group">
     

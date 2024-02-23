@@ -5,15 +5,13 @@ class Galeria extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <h1>Galerìa</h1>
+      <h3 class="text-center">Galerìa</h3>
       <!-- Carousel wrapper -->
       <div class="carousel-inner py-4">
           <!-- Single item -->
           <div class="carousel-item active">
               <div class="container">
-                  <!-- <div class="row"> -->
-                  <div id="myGalleryCards" class="row"></div>
-                  <!-- </div> -->
+                <div id="myGalleryCards" class="row"></div>
               </div>
           </div>
       </div>
