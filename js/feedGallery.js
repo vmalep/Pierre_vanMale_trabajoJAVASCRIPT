@@ -2,6 +2,7 @@
 This file contains the js code to fetch and populate the gallery cards.
 */
 
+// Does not work on GitHub Deployment (https://vmalep.github.io/Pierre_vanMale_trabajoJAVASCRIPT), not sure why...
 fetch('../data/gallery.json')
     .then(function (response) {
         return response.json();
@@ -14,7 +15,6 @@ fetch('../data/gallery.json')
     });
 
 
-// ToDo: https://gosnippets.com/snippets/bootstrap-5-cards-gallery
 function appendCards(data) {
     var mainContainer = document.getElementById("myGalleryCards");
 

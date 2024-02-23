@@ -2,6 +2,7 @@
 This file contains the js code to fetch and populate the news component of the home page.
 */
 
+// Funcion para convertir las fechas en formato español
 function formatDate(dateString) {
     publishedAtDate = new Date(Date.parse(dateString));
 
@@ -15,6 +16,7 @@ function formatDate(dateString) {
     return publishedAtDate.toLocaleString('es-ES', dateFormatOptions);
 }
 
+// Does not work on GitHub Deployment (https://vmalep.github.io/Pierre_vanMale_trabajoJAVASCRIPT), not sure why...
 fetch('../data/news.json')
     .then(function (response) {
         return response.json();
@@ -31,7 +33,7 @@ function appendRSS(data) {
 
     for (var i = 0; i < (data.articles.length); i++) {
 
-        // Limit to 4 articles
+        // Limited to 4 articles
         if (i === 4) { break; }
 
         var div = document.createElement("div");
@@ -53,4 +55,5 @@ function appendRSS(data) {
 
         mainContainer.appendChild(div);
     }
+    
 }
