@@ -6,7 +6,7 @@ class Presupuesto extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <h3 class="text-center">Formulario de solicitud</h3>
-    <form method="" id="presupuestoForm" onsubmit="submitForm('presupuestoForm')">
+    <form id="presupuestoForm" onsubmit="submitForm('presupuestoForm')">
         <div class="form-group">
     
             <div class="row">
@@ -15,29 +15,29 @@ class Presupuesto extends HTMLElement {
                         <h5 class="card-title">Datos de contacto</h5>
                         <div>
                             <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
-                                <label class="form-label" for="phone">Nombre</label>
+                                <label class="form-label" >Nombre</label>
                                 <input type="text" aria-label="First name" class="form-control" name="firstName"
-                                    placeholder="Nombre" required="true">
+                                    placeholder="Nombre" required>
                             </div>
                         </div>
                         <div class="mb-2">
                             <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
-                                <label class="form-label" for="phone">Apellido</label>
+                                <label class="form-label" >Apellido</label>
                                 <input type="text" aria-label="Last name" class="form-control" name="lastName"
-                                    placeholder="Apellido" required="true">
+                                    placeholder="Apellido" required>
                             </div>
                         </div>
                         <div class="mb-2">
                             <div class="form-outline mb-3" style="width: 100%; max-width: 22rem">
-                                <label class="form-label" for="phone">Phone number with country code</label>
+                                <label class="form-label" >Phone number with country code</label>
                                 <input type="text" id="phone" class="form-control" data-mdb-input-mask="+48 999-999-999" /
-                                    name="phoneNumber" placeholder="+34 123 456 789" required="true">
+                                    name="phoneNumber" placeholder="+34 123 456 789" required>
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <label class="form-label">Email address</label>
                             <input type="email" class="form-control" id="inputEmail1" name="correoEmail"
-                                placeholder="login@domain.com" required="true">
+                                placeholder="login@domain.com" required>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ class Presupuesto extends HTMLElement {
                         <h5 class="card-title">Presupuesto</h5>
                         <label>Tipo de producto</label>
                         <select class="form-select mb-2" onchange="calculatePresupuesto()" id="productType"
-                            name="productType" required="true">
+                            name="productType" required>
                             <option value="">Selecciona un producto</option>
                             <option value="tikiWiki">TikiWiki (€500)</option>
                             <option value="wordPress">WordPress (€750)</option>
@@ -61,7 +61,7 @@ class Presupuesto extends HTMLElement {
                             </div>
                             <form class="text-center">
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-range-1-04">Numero de semanas</label><br>
+                                    <label class="sr-only" >Numero de semanas</label><br>
                                     <input class="form-range" type="range" min="1" max="8" step="1" value="8" id="nbWeeks"
                                         name="nbWeeks" oninput="calculatePresupuesto()">
                                     <ul class="list-inline d-flex justify-content-between">
@@ -122,19 +122,19 @@ class Presupuesto extends HTMLElement {
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="switchDedicatedServer"
                                     name="switchDedicatedServer" onchange="calculatePresupuesto()">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Dedicated
+                                <label class="form-check-label" >Dedicated
                                     server (100€)</label>
                             </div>
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="switchDomainName"
                                     name="switchDomainName" onchange="calculatePresupuesto()">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Domain name
+                                <label class="form-check-label" >Domain name
                                     (50€)</label>
                             </div>
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="switchAutoBkp"
                                     name="switchAutoBkp" onchange="calculatePresupuesto()">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Automatic
+                                <label class="form-check-label" >Automatic
                                     backup (75€)</label>
                             </div>
                         </div>
@@ -152,7 +152,7 @@ class Presupuesto extends HTMLElement {
                             <label class="form-check-label" for="defaultCheck1">
                                 He leido la policia de privacidad
                             </label>
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required="true">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
                         </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                         <button type="button" class="btn btn-warning mt-2"
