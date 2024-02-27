@@ -7,8 +7,11 @@ class Galeria extends HTMLElement {
     this.innerHTML = `
     <h3 class="text-center">Galerìa</h3>
 
-    <div id="myGalleryCards"></div>
-
+    <div class="py-4">
+        <div class="container">
+          <div id="myGalleryCards" class="row"></div>
+        </div>
+    </div>
     `;
   }
 }
